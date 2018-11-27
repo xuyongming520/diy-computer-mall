@@ -3,12 +3,14 @@
     <main>
       <LeftMenu :menu="menu" />
       <ShopingCar />
+      <UserLogin />
     </main>
   </div>
 </template>
 
 <script>
 import LeftMenu from './components/left-menu.vue';
+import UserLogin from './components/user-login.vue';
 import ShopingCar from './components/shoping-car.vue';
 
 export default {
@@ -27,6 +29,7 @@ export default {
   },
   components: {
     LeftMenu,
+    UserLogin,
     ShopingCar,
   },
 };
@@ -34,11 +37,12 @@ export default {
 
 <style lang="less" scoped>
 @import url("../../styles/number.less");
+@import url("../../styles/color.less");
 @height:40px;
 #top-navigation{
   width:100%;
   height: @height;
-  background: #344A5F;
+  background: @colorOne;
   color: #C0C4CC;
   line-height: @height;
 }

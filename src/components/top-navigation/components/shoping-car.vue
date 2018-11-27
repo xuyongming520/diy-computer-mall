@@ -16,7 +16,7 @@ export default {
   float: right;
   height: 100%;
   width: 120px;
-  background: rgb(61, 100, 136);
+  background: @colorTwo;
   text-align:center;
   transition: all .3s;
   &:hover{
