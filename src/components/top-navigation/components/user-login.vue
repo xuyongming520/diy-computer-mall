@@ -59,27 +59,27 @@ export default {
   line-height: 40px;
   font-size: 14px;
   color: #C0C4CC;
-}
-.el-dropdown-link{
-  transition: all .25s;
-  color: #C0C4CC;
-  height: 100%;
-  width:120px;
-  font-size: 12px;
-  text-align:center;
-  &:hover{
-    background: white;
-    color: @BLUE;
-  }
-}
-#login-register{
-  margin-right: 20px;
-  span{
-    margin-left: 20px;
+  .el-dropdown-link{
     transition: all .25s;
+    color: #C0C4CC;
+    height: 100%;
+    width:120px;
+    font-size: 12px;
+    text-align:center;
     &:hover{
-      color: white;
-      cursor: pointer;
+      background: white;
+      color: @BLUE;
+    }
+  }
+  #login-register{
+    margin-right: 20px;
+    span{
+      margin-left: 20px;
+      transition: all .25s;
+      &:hover{
+        color: white;
+        cursor: pointer;
+      }
     }
   }
 }

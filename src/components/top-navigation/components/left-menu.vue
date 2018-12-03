@@ -18,16 +18,16 @@ export default {
 <style lang="less" scoped>
 #left-menu{
   float: left;
-}
-span{
-  font-size: 14px;
-  padding-right: 6px;
-  border-right:1px solid #C0C4CC;
-  margin-right: 6px;
-  transition: all .25s;
-  &:hover{
-    color: white;
-    cursor: pointer;
+  span{
+    font-size: 14px;
+    padding-right: 6px;
+    border-right:1px solid #C0C4CC;
+    margin-right: 6px;
+    transition: all .25s;
+    &:hover{
+      color: white;
+      cursor: pointer;
+    }
   }
 }
 </style>

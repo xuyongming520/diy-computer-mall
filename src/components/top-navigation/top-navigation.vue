@@ -45,10 +45,10 @@ export default {
   background: @colorOne;
   color: #C0C4CC;
   line-height: @height;
-}
-main{
-  width: @mainWidth;
-  margin:0 auto;
-  position: relative;
+  main{
+    width: @mainWidth;
+    margin:0 auto;
+    position: relative;
+  }
 }
 </style>

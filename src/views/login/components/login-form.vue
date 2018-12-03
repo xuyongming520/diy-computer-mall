@@ -91,45 +91,45 @@ export default {
   float: right;
   background: white;
   border-radius: 3px;
-}
-header{
-  margin-top: 20px;
-  height: 80px;
-  line-height: 80px;
-  font-size: 25px;
-  text-align: center;
-}
-input{
-  display: block;
-  margin:20px auto 10px auto;
-  padding:10px;
-  width: 320px;
-  height: 25px;
-  outline: none;
-  border: 1px solid @border;
-  border-radius: 3px;
-  &.error{
-    border-color: @danger;
+  header{
+    margin-top: 20px;
+    height: 80px;
+    line-height: 80px;
+    font-size: 25px;
+    text-align: center;
   }
-}
-#message{
-  margin: 0 auto;
-  width: 344px;
-  height: 15px;
-  text-align: right;
-  font-size: 12px;
-  color: @danger;
-}
-#submit{
-  margin:15px auto 0 auto;
-  padding:10px;
-  width: 324px;
-  height: 25px;
-  line-height: 25px;
-  text-align: center;
-  font-size: 14px;
-  color:white;
-  background: @colorTwo;
-  border-radius: 3px;
+  input{
+    display: block;
+    margin:20px auto 10px auto;
+    padding:10px;
+    width: 320px;
+    height: 25px;
+    outline: none;
+    border: 1px solid @border;
+    border-radius: 3px;
+    &.error{
+      border-color: @danger;
+    }
+  }
+  #message{
+    margin: 0 auto;
+    width: 344px;
+    height: 15px;
+    text-align: right;
+    font-size: 12px;
+    color: @danger;
+  }
+  #submit{
+    margin:15px auto 0 auto;
+    padding:10px;
+    width: 324px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    font-size: 14px;
+    color:white;
+    background: @colorTwo;
+    border-radius: 3px;
+  }
 }
 </style>
