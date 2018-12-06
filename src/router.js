@@ -14,19 +14,19 @@ export default new Router({
       component: () => import('@/views/index'),
     },
     {
-      path: '/user',
-      name: 'user',
-      component: () => import('@/views/user/index'),
+      path: '/account',
+      name: 'account',
+      component: () => import('@/views/account/index'),
       children: [
         {
-          path: '/user/login',
+          path: '/account/login',
           name: 'login',
-          component: () => import('@/views/user/login'),
+          component: () => import('@/views/account/login'),
         },
         {
-          path: '/user/register',
+          path: '/account/register',
           name: 'register',
-          component: () => import('@/views/user/register'),
+          component: () => import('@/views/account/register'),
         },
       ],
     },

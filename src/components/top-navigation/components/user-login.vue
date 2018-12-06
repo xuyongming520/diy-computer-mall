@@ -15,8 +15,8 @@
     </el-dropdown>
 
     <div id="login-register" v-else>
-      <router-link tag="span" to="/user/login">登录</router-link>
-      <router-link tag="span" to="/user/register">注册</router-link>
+      <router-link tag="span" to="/account/login">登录</router-link>
+      <router-link tag="span" to="/account/register">注册</router-link>
     </div>
   </div>
 </template>

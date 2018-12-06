@@ -3,15 +3,17 @@
     <img src="../../assets/images/logo/logo.png" width="240px" height="127px" alt="DIYC"/>
     <header>
       <div>
-        <router-link tag="span" to="/user/login">登录</router-link>
+        <router-link tag="span" to="/account/login">登录</router-link>
         <div :class="loginClass" />
       </div>
       <div>
-        <router-link tag="span" to="/user/register">注册</router-link>
+        <router-link tag="span" to="/account/register">注册</router-link>
         <div :class="registerClass" />
       </div>
     </header>
-    <router-view />
+    <transition :name="transition" mode="out-in">
+      <router-view />
+    </transition>
   </div>
 </template>
 
@@ -22,6 +24,7 @@ export default {
     return {
       loginClass: null,
       registerClass: null,
+      transition: null,
     };
   },
   methods: {
@@ -35,14 +38,23 @@ export default {
         this.registerClass = 'focus';
       }
     },
+    switchTransition(routeName) {
+      if (routeName === 'login') {
+        this.transition = 'goRight';
+      } else if (routeName === 'register') {
+        this.transition = 'goLeft';
+      }
+    },
   },
   watch: {
     $route(to) {
       this.switchClass(to.name);
+      this.switchTransition(to.name);
     },
   },
   created() {
     this.switchClass(this.$route.name);
+    this.switchTransition(this.$route.name);
   },
 };
 </script>
@@ -63,7 +75,7 @@ export default {
     div{
       display: inline-block;
       text-align: center;
-      width: 159.5px;
+      width: 160px;
       span{
         display: block;
         letter-spacing:5px;
@@ -85,6 +97,37 @@ export default {
         }
       }
     }
+  }
+    /* 左-右进入 */
+  .goLeft-enter-active{
+    opacity: 0;
+    transition: all .2s;
+  }
+  .goLeft-enter-to{
+    opacity: 1;
+  }
+
+  /* 左-右渐出 */
+  .goLeft-leave-active{
+    transition: all .2s;
+  }
+  .goLeft-leave-to{
+    opacity: 0;
+  }
+   /* 右-左进入 */
+  .goRight-enter-active{
+    opacity: 0;
+    transition: all .2s;
+  }
+  .goRight-enter-to{
+    opacity: 1;
+  }
+  /* 右-左渐出 */
+  .goRight-leave-active{
+    transition: all .2s;
+  }
+  .goRight-leave-to{
+    opacity: 0;
   }
 }
 </style>

@@ -19,6 +19,7 @@ export default {
   background: @colorTwo;
   text-align:center;
   transition: all .3s;
+  color: white;
   &:hover{
     background: white;
     color: @BLUE;
