@@ -3,11 +3,14 @@ import * as users from '@/api/users';
 const nameKey = 'user-name';
 
 export function getName() {
+  console.log('====================================');
+  console.log(sessionStorage.getItem(nameKey));
+  console.log('====================================');
   return sessionStorage.getItem(nameKey);
 }
 
 export function setName() {
-  users.userInfo()
+  return users.userInfo()
     .then((res) => {
       console.log(res);
       switch (res.data.code) {

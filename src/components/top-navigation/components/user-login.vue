@@ -15,8 +15,8 @@
     </el-dropdown>
 
     <div id="login-register" v-else>
-      <router-link tag="span" to="/login">登录</router-link>
-      <router-link tag="span" to="/register">注册</router-link>
+      <router-link tag="span" to="/user/login">登录</router-link>
+      <router-link tag="span" to="/user/register">注册</router-link>
     </div>
   </div>
 </template>
@@ -35,7 +35,8 @@ export default {
   methods: {
     async logout() {
       await sessionStorage.clear();
-      await this.$store.dispatch('refreshIsLogin');
+      await this.$store.commit('SET_ISLOGIN', false);
+      await this.$store.commit('SET_USERNAME', null);
       this.$router.push({ path: '/' });
     },
   },

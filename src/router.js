@@ -14,14 +14,21 @@ export default new Router({
       component: () => import('@/views/index'),
     },
     {
-      path: '/login',
-      name: 'login',
-      component: () => import('@/views/login/login'),
-    },
-    {
-      path: '/register',
-      name: 'register',
-      component: () => import('@/views/register/register'),
+      path: '/user',
+      name: 'user',
+      component: () => import('@/views/user/index'),
+      children: [
+        {
+          path: '/user/login',
+          name: 'login',
+          component: () => import('@/views/user/login'),
+        },
+        {
+          path: '/user/register',
+          name: 'register',
+          component: () => import('@/views/user/register'),
+        },
+      ],
     },
   ],
 });

@@ -7,6 +7,7 @@ export function register(email, password) {
     data: {
       email,
       password,
+      name: email,
     },
   });
 }
