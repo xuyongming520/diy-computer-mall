@@ -78,7 +78,7 @@ export default {
       width: 160px;
       span{
         display: block;
-        letter-spacing:5px;
+        letter-spacing:4px;
         &:hover{
           cursor: default;
         }
@@ -86,7 +86,7 @@ export default {
       div{
         width: 0px;
         margin: 0 auto;
-        transition: all .5s;
+        transition: all .3s;
         border-bottom: 2px solid @colorTwo;
         color: @fontTwo;
       }
