@@ -20,6 +20,7 @@ export default {
   text-align:center;
   transition: all .3s;
   color: white;
+  position: relative;
   &:hover{
     background: white;
     color: @BLUE;

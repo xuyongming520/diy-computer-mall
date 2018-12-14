@@ -1,6 +1,6 @@
 <template>
   <div id="left-menu">
-    <router-link tag="span" v-for="item in menu" :key="item.name" :to="item.path">
+    <router-link tag="span" v-for="(item,index) in menu" :key="index" :to="item.path">
       {{item.name}}
     </router-link>
   </div>
