@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <svg-icon class-name="international-icon" icon-class="language" />
+  <div id="user">
   </div>
 </template>
 
@@ -11,9 +10,4 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.international-icon {
-  font-size: 20px;
-  cursor: pointer;
-  vertical-align: -5px!important;
-}
 </style>

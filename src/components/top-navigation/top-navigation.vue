@@ -2,7 +2,7 @@
   <div id="top-navigation">
     <main>
       <LeftMenu :menu="menu" />
-      <ShopingCar />
+      <ShoppingCart />
       <UserLogin />
     </main>
   </div>
@@ -11,7 +11,7 @@
 <script>
 import LeftMenu from './components/left-menu.vue';
 import UserLogin from './components/user-login.vue';
-import ShopingCar from './components/shoping-car.vue';
+import ShoppingCart from './components/shopping-cart.vue';
 
 export default {
   name: 'top-navigation',
@@ -30,7 +30,7 @@ export default {
   components: {
     LeftMenu,
     UserLogin,
-    ShopingCar,
+    ShoppingCart,
   },
 };
 </script>
