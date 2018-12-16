@@ -29,6 +29,7 @@
 
 <script>
 import * as users from '@/api/users';
+import * as cart from '@/api/shopping-cart';
 import * as auth from '@/utils/auth';
 import * as format from '@/utils/format';
 import * as name from '@/utils/username';
@@ -45,8 +46,7 @@ export default {
     };
   },
   methods: {
-    login() {
-      console.log(format.email(this.email));
+    checkFormat() {
       if (!this.email) {
         this.emailClass = 'error';
         this.message = '邮箱不能为空！';
@@ -60,32 +60,51 @@ export default {
         this.message = '密码不能为空！';
         this.$refs.password.focus();
       } else {
-        users.login(this.email, this.password)
-          .then((res) => {
-            switch (res.data.code) {
-              case '0':
-                this.message = '账号或密码错误';
-                this.emailClass = 'error';
-                this.passwordClass = 'error';
-                this.password = '';
-                this.$refs.email.focus();
-                break;
-              case '1':
-                auth.setToken(res.data.token);
-                this.$store.commit('SET_ISLOGIN', true);
-                name.setName().then(() => {
-                  this.$store.commit('SET_USERNAME', name.getName());
-                });
-                this.$router.push({ path: '/' });
-                break;
-              default:
-                break;
-            }
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+        this.login();
       }
+    },
+    login() {
+      users.login(this.email, this.password)
+        .then((res) => {
+          switch (res.data.code) {
+            case '0':
+              this.message = '账号或密码错误';
+              this.emailClass = 'error';
+              this.passwordClass = 'error';
+              this.password = '';
+              this.$refs.email.focus();
+              break;
+            case '1':
+              auth.setToken(res.data.token);
+              this.$store.commit('SET_ISLOGIN', true);
+              name.setName().then(() => {
+                this.$store.dispatch('setUsername', name.getName());
+                this.getCart();
+              });
+              this.$router.push({ path: '/' });
+              break;
+            default:
+              break;
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    },
+    getShoppingCart() {
+      cart.query()
+        .then((res) => {
+          switch (String(res.data.code)) {
+            case '1':
+              this.$store.dispatch('getShoppingCart', res.data.data);
+              break;
+            default:
+              break;
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     },
   },
   directives: {

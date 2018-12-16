@@ -3,9 +3,6 @@ import * as users from '@/api/users';
 const nameKey = 'user-name';
 
 export function getName() {
-  console.log('====================================');
-  console.log(sessionStorage.getItem(nameKey));
-  console.log('====================================');
   return sessionStorage.getItem(nameKey);
 }
 
@@ -22,7 +19,7 @@ export function setName() {
       }
     })
     .catch((err) => {
-      console.log(err);
+      console.error(err);
     });
 }
 

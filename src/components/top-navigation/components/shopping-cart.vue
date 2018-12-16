@@ -5,8 +5,32 @@
 </template>
 
 <script>
+import * as cart from '@/api/shopping-cart';
+
 export default {
   name: 'shopping-cart',
+  methods: {
+    getShoppingCart() {
+      cart.query()
+        .then((res) => {
+          switch (String(res.data.code)) {
+            case '1':
+              this.$store.dispatch('getShoppingCart', res.data.data);
+              break;
+            default:
+              break;
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    },
+  },
+  created() {
+    if (this.$store.getters.isLogin) {
+      this.getShoppingCart();
+    }
+  },
 };
 </script>
 
