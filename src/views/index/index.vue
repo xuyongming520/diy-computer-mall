@@ -58,10 +58,10 @@ export default {
     margin: 10px 0px;
     line-height: 100px;
     .search{
-      width: 650px;
+      width: 630px;
       margin: 0px auto;
       .input-with-select{
-        width: 650px;
+        width: 630px;
         .select-list{
           min-width: 100px;
         }
@@ -77,6 +77,9 @@ export default {
   }
 
   #carousel{
+    position: relative;
+    z-index: -1;
+
     .el-carousel__item h3 {
       color: #475669;
       font-size: 18px;

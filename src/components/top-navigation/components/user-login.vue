@@ -22,21 +22,22 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'user-login',
   computed: {
-    isLogin() {
-      return this.$store.getters.isLogin;
-    },
-    username() {
-      return this.$store.getters.username;
-    },
+    ...mapGetters([
+      'isLogin',
+      'username',
+    ]),
   },
   methods: {
     async logout() {
       await sessionStorage.clear();
-      await this.$store.commit('SET_ISLOGIN', false);
-      await this.$store.commit('SET_USERNAME', null);
+      await this.$store.dispatch('setIsLogin');
+      await this.$store.dispatch('setUsername');
+      await this.$store.dispatch('cleanShoppingCart');
       this.$router.push({ path: '/' });
     },
   },

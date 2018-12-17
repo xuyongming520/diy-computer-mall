@@ -79,7 +79,7 @@ export default {
               this.$store.commit('SET_ISLOGIN', true);
               name.setName().then(() => {
                 this.$store.dispatch('setUsername', name.getName());
-                this.getCart();
+                this.getShoppingCart();
               });
               this.$router.push({ path: '/' });
               break;

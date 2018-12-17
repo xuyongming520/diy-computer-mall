@@ -9,7 +9,6 @@ export function getName() {
 export function setName() {
   return users.userInfo()
     .then((res) => {
-      console.log(res);
       switch (res.data.code) {
         case '1':
           sessionStorage.setItem(nameKey, res.data.users.name);
