@@ -38,8 +38,6 @@
 <script>
 import * as users from '@/api/users';
 import * as format from '@/utils/format';
-import * as auth from '@/utils/auth';
-import * as name from '@/utils/username';
 
 export default {
   name: 'register',
@@ -92,11 +90,7 @@ export default {
                 this.message = `${res.data.msg}！`;
                 break;
               case '1':
-                auth.setToken(res.data.token);
-                this.$store.commit('SET_ISLOGIN', true);
-                name.setName().then(() => {
-                  this.$store.commit('SET_USERNAME', name.getName());
-                });
+                this.$store.dispatch('login', { email: this.email, password: this.password });
                 this.$router.push({ path: '/' });
                 break;
               default:

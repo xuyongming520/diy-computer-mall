@@ -1,17 +1,20 @@
 <template>
   <div id="user-login">
     <el-dropdown v-if="Boolean(isLogin)">
-      <div class="el-dropdown-link">
+      <div class="dropdown-link">
         {{username | ellipsis}}<i class="el-icon-arrow-down el-icon--right"></i>
+        <div class="user-menu">
+          <el-button
+            type="text"
+            class="menu-button"
+            v-for="(item,index) in menuList"
+            :key="index"
+            @click="item.methods"
+          >
+            {{item.name}}
+          </el-button>
+        </div>
       </div>
-      <el-dropdown-menu slot="dropdown">
-        <el-dropdown-item>个人主页</el-dropdown-item>
-        <el-dropdown-item>购物车</el-dropdown-item>
-        <el-dropdown-item>我的收藏</el-dropdown-item>
-        <el-dropdown-item>
-          <span @click="logout()">退出登录</span>
-        </el-dropdown-item>
-      </el-dropdown-menu>
     </el-dropdown>
 
     <div id="login-register" v-else>
@@ -26,6 +29,16 @@ import { mapGetters } from 'vuex';
 
 export default {
   name: 'user-login',
+  data() {
+    return {
+      menuList: [
+        { name: '个人主页', methods: '' },
+        { name: '购物车', methods: '' },
+        { name: '我的收藏', methods: '' },
+        { name: '退出登录', methods: this.logout },
+      ],
+    };
+  },
   computed: {
     ...mapGetters([
       'isLogin',
@@ -33,12 +46,11 @@ export default {
     ]),
   },
   methods: {
-    async logout() {
-      await sessionStorage.clear();
-      await this.$store.dispatch('setIsLogin');
-      await this.$store.dispatch('setUsername');
-      await this.$store.dispatch('cleanShoppingCart');
-      this.$router.push({ path: '/' });
+    logout() {
+      this.$store.dispatch('logout')
+        .then(() => {
+          this.$router.push({ path: '/' });
+        });
     },
   },
   filters: {
@@ -56,27 +68,51 @@ export default {
 <style lang="less" scoped>
 @import url("../../../styles/color.less");
 #user-login{
+  width: 140px;
   float: right;
   height: 40px;
   line-height: 40px;
   font-size: 14px;
   color: #C0C4CC;
-  .el-dropdown-link{
+  background: @colorOne;
+  position: relative;
+  z-index: 1;
+  box-shadow: -5px 0px 0px @colorOne;
+  .dropdown-link{
     transition: all .25s;
     color: #C0C4CC;
-    height: 100%;
-    width:120px;
-    font-size: 12px;
+    height: 40px;
+    width:140px;
+    font-size: 14px;
     text-align:center;
+    position: relative;
+    .user-menu{
+      position:absolute;
+      top: 40px;
+      width:140px;
+      height: 0px;
+      overflow: hidden;
+      background: white;
+      transition: all .4s cubic-bezier(0.46, 0.39, 0.44, 0.83);
+      box-shadow: 0px 0px 5px #888;
+      z-index: -1;
+      .menu-button{
+        width: 140px;
+        margin: 0;
+      }
+    }
     &:hover{
       background: white;
-      color: @BLUE;
+      color: @colorTwo;
+      .user-menu{
+        height: 160px;
+      }
     }
   }
   #login-register{
-    margin-right: 20px;
+    width: 140px;
     span{
-      margin-left: 20px;
+      margin-left: 25px;
       transition: all .25s;
       &:hover{
         color: white;

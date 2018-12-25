@@ -20,8 +20,8 @@
 
     <div id="carousel">
       <el-carousel :interval="5000" height="440px" arrow="always">
-        <el-carousel-item v-for="item in 4" :key="item">
-          <h3>{{ item }}</h3>
+        <el-carousel-item v-for="item in carouselList" :key="item.src">
+          <img :src="item.src" >
         </el-carousel-item>
       </el-carousel>
     </div>
@@ -29,6 +29,11 @@
 </template>
 
 <script>
+import Image1 from '@/assets/images/index/aocAio721.png';
+import Image2 from '@/assets/images/index/GTX1080Ti.png';
+import Image3 from '@/assets/images/index/intelCorei9.png';
+import Image4 from '@/assets/images/index/WDBLACKNVMESSD.png';
+
 export default {
   name: 'index',
   data() {
@@ -36,10 +41,22 @@ export default {
       input: '',
       select: '',
       selectList: [
-        { name: '主板', value: 1 },
-        { name: '显卡', value: 2 },
-        { name: 'CPU', value: 3 },
-        { name: '内存', value: 4 },
+        { key: '1', value: '1', name: '机箱' },
+        { key: '2', value: '2', name: 'CPU' },
+        { key: '3', value: '3', name: '散热器' },
+        { key: '4', value: '4', name: '显卡' },
+        { key: '5', value: '5', name: '机械硬盘' },
+        { key: '6', value: '6', name: '显示器' },
+        { key: '7', value: '7', name: '主板' },
+        { key: '8', value: '8', name: '电源' },
+        { key: '9', value: '9', name: '内存' },
+        { key: '10', value: '10', name: '固态硬盘' },
+      ],
+      carouselList: [
+        { src: Image1 },
+        { src: Image2 },
+        { src: Image3 },
+        { src: Image4 },
       ],
     };
   },
@@ -78,7 +95,7 @@ export default {
 
   #carousel{
     position: relative;
-    z-index: -1;
+    z-index: 0;
 
     .el-carousel__item h3 {
       color: #475669;

@@ -45,10 +45,13 @@ export default {
   background: @colorOne;
   color: #C0C4CC;
   line-height: @height;
+  position: relative;
+  z-index: 1;
   main{
     width: @mainWidth;
     margin:0 auto;
     position: relative;
+    z-index: -2;
   }
 }
 </style>

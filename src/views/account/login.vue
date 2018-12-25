@@ -28,11 +28,7 @@
 </template>
 
 <script>
-import * as users from '@/api/users';
-import * as cart from '@/api/shopping-cart';
-import * as auth from '@/utils/auth';
 import * as format from '@/utils/format';
-import * as name from '@/utils/username';
 
 export default {
   name: 'login',
@@ -63,10 +59,11 @@ export default {
         this.login();
       }
     },
-    login() {
-      users.login(this.email, this.password)
-        .then((res) => {
-          switch (res.data.code) {
+    async login() {
+      this.$store.dispatch('login', { email: this.email, password: this.password })
+        .then((code) => {
+          console.log(code);
+          switch (code) {
             case '0':
               this.message = '账号或密码错误';
               this.emailClass = 'error';
@@ -75,35 +72,11 @@ export default {
               this.$refs.email.focus();
               break;
             case '1':
-              auth.setToken(res.data.token);
-              this.$store.commit('SET_ISLOGIN', true);
-              name.setName().then(() => {
-                this.$store.dispatch('setUsername', name.getName());
-                this.getShoppingCart();
-              });
               this.$router.push({ path: '/' });
               break;
             default:
               break;
           }
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    },
-    getShoppingCart() {
-      cart.query()
-        .then((res) => {
-          switch (String(res.data.code)) {
-            case '1':
-              this.$store.dispatch('getShoppingCart', res.data.data);
-              break;
-            default:
-              break;
-          }
-        })
-        .catch((err) => {
-          console.error(err);
         });
     },
   },
