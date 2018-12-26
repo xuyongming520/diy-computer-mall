@@ -36,6 +36,11 @@ export default new Router({
       ],
     },
     {
+      path: '/search/:keyWord',
+      name: 'search',
+      component: () => import('@/views/search/index'),
+    },
+    {
       path: '/404',
       name: '404',
       component: () => import('@/views/404'),

@@ -20,6 +20,7 @@ const shoppingCart = {
             switch (String(res.data.code)) {
               case '1':
                 commit('GET_SHOPPINGCART', res.data.data);
+                commit('SET_CART', String(res.data.data.length));
                 resolve();
                 break;
               default:
@@ -27,7 +28,6 @@ const shoppingCart = {
             }
           })
           .catch((err) => {
-            console.error(err);
             reject(err);
           });
       });

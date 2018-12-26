@@ -96,9 +96,6 @@ export default {
               default:
                 break;
             }
-          })
-          .catch((err) => {
-            console.error(err);
           });
       }
     },

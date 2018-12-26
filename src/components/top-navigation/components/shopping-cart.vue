@@ -57,6 +57,7 @@
 </template>
 
 <script>
+// TODO:获取购物车的逻辑调整，是否有必要牺牲性能去提高用户体验。
 import { mapGetters } from 'vuex';
 
 export default {
@@ -93,7 +94,7 @@ export default {
         .catch(() => { this.loading = false; });
     },
     getList() {
-      if (this.$store.getters.isLogin && !this.$store.getters.shoppingCartIsNull) {
+      if (this.$store.getters.isLogin) {
         this.$store.dispatch('getShoppingCart')
           .then(() => { this.loading = false; })
           .catch(() => { this.loading = false; });
@@ -138,7 +139,7 @@ export default {
     width: 140px;
     background: @colorTwo;
     text-align:center;
-    transition: all .4s cubic-bezier(0.46, 0.39, 0.44, 0.83);
+    transition: all .3s cubic-bezier(0.46, 0.39, 0.44, 0.83);
     color: white;
     z-index: auto;
     .icon{
@@ -153,8 +154,9 @@ export default {
     z-index: -1;
     right: 0px;
     width: 280px;
+    min-height: 120px;
     background: white;
-    transition: all .4s cubic-bezier(0.46, 0.39, 0.44, 0.83);
+    transition: all .3s cubic-bezier(0.46, 0.39, 0.44, 0.83);
     transform: translateY(-100%);
     .cart-is-empty{
       line-height: 110px;
@@ -201,7 +203,7 @@ export default {
         width:260px;
         height: 50px;
         padding:10px;
-        background: @backFour;
+        background: @backMain;
         .cart-info{
           float:left;
           margin-left: 5px;

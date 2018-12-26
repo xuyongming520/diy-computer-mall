@@ -1,5 +1,3 @@
-import * as users from '@/api/users';
-
 const nameKey = 'user-name';
 
 export function getName() {

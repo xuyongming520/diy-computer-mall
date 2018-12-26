@@ -7,7 +7,7 @@ const login = {
   state: {
     isLogin: !!token.getToken(),
     username: username.getName() ? username.getName() : null,
-    shoppingCartIsNull: shoppingCart.getCart() === '0',
+    shoppingCartIsNull: shoppingCart.getCart() ? shoppingCart.getCart() === '0' : true,
   },
   mutations: {
     SET_ISLOGIN(state, isLogin) {
@@ -41,9 +41,6 @@ const login = {
               default:
                 break;
             }
-          })
-          .catch((err) => {
-            console.warn(err);
           });
       });
     },

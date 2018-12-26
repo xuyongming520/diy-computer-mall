@@ -1,21 +1,19 @@
 <template>
   <div id="user-login">
-    <el-dropdown v-if="Boolean(isLogin)">
-      <div class="dropdown-link">
-        {{username | ellipsis}}<i class="el-icon-arrow-down el-icon--right"></i>
-        <div class="user-menu">
-          <el-button
-            type="text"
-            class="menu-button"
-            v-for="(item,index) in menuList"
-            :key="index"
-            @click="item.methods"
-          >
-            {{item.name}}
-          </el-button>
-        </div>
+    <div class="dropdown-link" v-if="Boolean(isLogin)">
+      {{username | ellipsis}}<i class="el-icon-arrow-down el-icon--right"></i>
+      <div class="user-menu">
+        <el-button
+          type="text"
+          class="menu-button"
+          v-for="(item,index) in menuList"
+          :key="index"
+          @click="item.methods"
+        >
+          {{item.name}}
+        </el-button>
       </div>
-    </el-dropdown>
+    </div>
 
     <div id="login-register" v-else>
       <router-link tag="span" to="/account/login">登录</router-link>
