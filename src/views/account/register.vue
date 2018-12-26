@@ -115,7 +115,7 @@ export default {
 @import url("../../styles/color.less");
 #register{
   width: 400px;
-  height: 520px;
+  height: 150px;
   margin: 0 auto;
   background: white;
   border-radius: 3px;

@@ -142,6 +142,12 @@ export default {
               this.totalPage = res.data.data.totalPage;
               this.loading = false;
               break;
+            case 0:
+              this.productsList = [];
+              this.totalCount = 0;
+              this.totalPage = 0;
+              this.loading = false;
+              break;
             default:
               break;
           }
@@ -190,10 +196,6 @@ export default {
 @import url('../../styles/number.less');
 @import url('../../styles/color.less');
 #search-page{
-  .select{
-    color:@colorTwo;
-    font-weight: bold;
-  }
 
   #bread-crumb{
     width: 100%;
@@ -236,6 +238,10 @@ export default {
             cursor: pointer;
           }
         }
+        .select{
+          color:@colorTwo;
+          font-weight: bold;
+        }
       }
     }
   }
@@ -263,6 +269,10 @@ export default {
             color:@colorTwo;
             cursor: pointer;
           }
+        }
+        .select{
+          color:@colorTwo;
+          font-weight: bold;
         }
       }
       .between-price{

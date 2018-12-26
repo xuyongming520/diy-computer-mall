@@ -1,17 +1,22 @@
 <template>
   <div id="app">
     <TopNavigation />
-    <router-view></router-view>
+    <main>
+      <router-view></router-view>
+    </main>
+    <Footer />
   </div>
 </template>
 
 <script>
 import TopNavigation from '@/components/top-navigation/top-navigation.vue';
+import Footer from '@/components/footer/index.vue';
 
 export default {
   name: 'app',
   components: {
     TopNavigation,
+    Footer,
   },
 };
 </script>
@@ -22,5 +27,9 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+  main{
+    width: 100%;
+    min-height: calc(100vh - 200px);
+  }
 }
 </style>

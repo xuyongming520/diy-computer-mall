@@ -66,7 +66,8 @@ export default {
   width: 100%;
   img{
     display: block;
-    margin: 100px auto 0 auto;
+    margin: 0 auto;
+    padding-top: 100px;
   }
   header{
     width: 320px;
