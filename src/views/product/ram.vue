@@ -115,43 +115,29 @@ export default {
         {
           title: '基本参数',
           info: [
-            { key: 'appropriateType', name: '使用类型' },
-            { key: 'series', name: 'CPU系列' },
-            { key: 'craftsmanship', name: '制作工艺' },
-            { key: 'code', name: '核心代号' },
+            { key: 'appropriateType', name: '适用类型' },
+            { key: 'capacity', name: '内存容量' },
+            { key: 'type', name: '内存类型' },
+            { key: 'ramFrequency', name: '内存主频' },
+            { key: 'stitches', name: '针脚数' },
             { key: 'slotType', name: '插槽类型' },
-            { key: 'packageSize', name: '分装大小' },
           ],
         },
         {
-          title: '性能参数',
+          title: '技术参数',
           info: [
-            { key: 'cpuFrequency', name: 'CPU主频' },
-            { key: 'accelerationFrequency', name: '动态加速频率' },
-            { key: 'coreNumber', name: '核心数量' },
-            { key: 'threadNumber', name: '线程数量' },
-            { key: 'thirdCache', name: '三级缓存' },
-            { key: 'busSpecification', name: '总线规格' },
-            { key: 'thermalPower', name: '热设计功耗' },
+            { key: 'cl', name: 'CL延迟' },
           ],
         },
       ],
       performance: [
         {
           icon: 'host',
-          info: [{ title: '使用类型', detail: 'appropriateType' }, { title: 'CPU系列', detail: 'series' }],
+          info: [{ title: '适用类型', detail: 'appropriateType' }, { title: '内存容量', detail: 'capacity' }],
         },
         {
-          icon: 'heartbeat',
-          info: [{ title: 'CPU主频', detail: 'cpuFrequency' }, { title: '最大睿频', detail: 'accelerationFrequency' }],
-        },
-        {
-          icon: 'board',
-          info: [{ title: '插槽类型', detail: 'slotType' }, { title: '封装大小', detail: 'packageSize' }],
-        },
-        {
-          icon: 'cpu',
-          info: [{ title: '核心数量', detail: 'coreNumber' }, { title: '线程数', detail: 'threadNumber' }],
+          icon: 'ram',
+          info: [{ title: '内存类型', detail: 'type' }, { title: '内存主频', detail: 'ramFrequency' }],
         },
       ],
     };
@@ -271,7 +257,7 @@ export default {
         }
         .performance{
           width: calc(100% - 30px);
-          height:120px;
+          height:61px;
           background:@backMain;
           border:1px solid @fontFour;
           padding:15px;
