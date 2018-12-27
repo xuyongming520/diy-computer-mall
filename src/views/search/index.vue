@@ -46,7 +46,14 @@
         <div class="between-price">
           <el-input v-model="listQuery.price1" placeholder="价格1" size="mini" class="input" /> -
           <el-input v-model="listQuery.price2" placeholder="价格2" size="mini" class="input" />
-          <el-button type="primary" size="mini" class="button" @click="handlePriceCalc">确定</el-button>
+          <el-button
+            type="primary"
+            size="mini"
+            class="button"
+            @click="handlePriceCalc"
+          >
+            确定
+          </el-button>
         </div>
       </div>
     </section>
@@ -57,10 +64,12 @@
           v-for="(item,index) in productsList"
           :key="index"
           class="product-card"
+          @click="routerToProductDetail(item.classId,item.pkId)"
         >
           <img :src="item.image" width="200px" height="200px" class="image">
           <div class="name">{{item.name}}</div>
-          <div class="price">{{item.price}}</div>
+          <div class="price">{{item.price}}<span style="font-size:12px;">&nbsp;元</span></div>
+          <div class="points">销售量：{{item.points}}</div>
         </div>
       </div>
       <div class="no-result" v-else>
@@ -108,15 +117,15 @@ export default {
       classList: [
         { key: undefined, name: '全部', router: undefined },
         { key: '1', name: '机箱', router: 'chassis' },
-        { key: '2', name: 'CPU', router: 'cpu' },
-        { key: '3', name: '散热器', router: 'sink' },
-        { key: '4', name: '显卡', router: 'graphics' },
+        { key: '2', name: 'CPU', router: 'CPU' },
+        { key: '3', name: '显卡', router: 'graphics' },
+        { key: '4', name: '散热器', router: 'sink' },
         { key: '5', name: '机械硬盘', router: 'mechanical' },
         { key: '6', name: '显示器', router: 'monitor' },
         { key: '7', name: '主板', router: 'board' },
         { key: '8', name: '电源', router: 'power' },
-        { key: '9', name: '内存', router: 'ram' },
-        { key: '10', name: '固态硬盘', router: 'ssd' },
+        { key: '9', name: '内存', router: 'RAM' },
+        { key: '10', name: '固态硬盘', router: 'SSD' },
       ],
       orderByList: [
         { name: '综合', orderBy: null, desc: null },
@@ -176,6 +185,11 @@ export default {
     handleCurrentChange(val) {
       this.listQuery.page = val;
       this.getList();
+    },
+    routerToProductDetail(classId, productId) {
+      const routerPath = this.classList[classId].router;
+      console.log(routerPath);
+      this.$router.push({ path: `/product/${routerPath}/${productId}` });
     },
   },
   watch: {
@@ -313,9 +327,11 @@ export default {
         margin:6px;
         &:hover{
           box-shadow:0px 2px 10px #888;
+          cursor: pointer;
         }
         .image{
           padding:46px;
+          padding-bottom:30px;
         }
         .name{
           font-size:14px;
@@ -330,6 +346,13 @@ export default {
           color:@colorTwo;
           width:240px;
           margin:10px auto;
+          text-align:center;
+        }
+        .points{
+          font-size:14px;
+          color:@fontThree;
+          width:240px;
+          margin:35px auto;
           text-align:center;
         }
       }

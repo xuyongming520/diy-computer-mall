@@ -4,19 +4,19 @@
     <main>
       <router-view></router-view>
     </main>
-    <Footer />
+    <FooterInfo />
   </div>
 </template>
 
 <script>
 import TopNavigation from '@/components/top-navigation/top-navigation.vue';
-import Footer from '@/components/footer/index.vue';
+import FooterInfo from '@/components/footer/index.vue';
 
 export default {
   name: 'app',
   components: {
     TopNavigation,
-    Footer,
+    FooterInfo,
   },
 };
 </script>

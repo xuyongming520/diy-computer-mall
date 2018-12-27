@@ -41,6 +41,56 @@ export default new Router({
       component: () => import('@/views/search/index'),
     },
     {
+      path: '/product/CPU/:productId',
+      name: 'CPU',
+      component: () => import('@/views/product/cpu'),
+    },
+    {
+      path: '/product/board/:productId',
+      name: 'board',
+      component: () => import('@/views/product/board'),
+    },
+    {
+      path: '/product/chassis/:productId',
+      name: 'chassis',
+      component: () => import('@/views/product/chassis'),
+    },
+    {
+      path: '/product/graphics/:productId',
+      name: 'graphics',
+      component: () => import('@/views/product/graphics'),
+    },
+    {
+      path: '/product/mechanical/:productId',
+      name: 'mechanical',
+      component: () => import('@/views/product/mechanical'),
+    },
+    {
+      path: '/product/monitor/:productId',
+      name: 'monitor',
+      component: () => import('@/views/product/monitor'),
+    },
+    {
+      path: '/product/power/:productId',
+      name: 'power',
+      component: () => import('@/views/product/power'),
+    },
+    {
+      path: '/product/RAM/:productId',
+      name: 'RAM',
+      component: () => import('@/views/product/ram'),
+    },
+    {
+      path: '/product/sink/:productId',
+      name: 'sink',
+      component: () => import('@/views/product/sink'),
+    },
+    {
+      path: '/product/SSD/:productId',
+      name: 'SSD',
+      component: () => import('@/views/product/ssd'),
+    },
+    {
       path: '/404',
       name: '404',
       component: () => import('@/views/404'),
