@@ -16,11 +16,25 @@ export default new Router({
     {
       path: '/user',
       name: 'user',
+      redirect: '/user/dashboard',
       component: () => import('@/views/user'),
+      children: [
+        {
+          path: '/user/dashboard',
+          name: 'userDashboard',
+          component: () => import('@/views/user/dashboard'),
+        },
+        {
+          path: '/user/shoppingCart',
+          name: 'shoppingCartIndex',
+          component: () => import('@/views/user/shopping-cart'),
+        },
+      ],
     },
     {
       path: '/account',
       name: 'account',
+      redirect: '/account/login',
       component: () => import('@/views/account/index'),
       children: [
         {

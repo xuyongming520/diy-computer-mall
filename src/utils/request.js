@@ -4,11 +4,11 @@ import { getToken } from '@/utils/auth';
 
 // create an axios instance
 const service = axios.create({
-  baseURL: 'http://192.168.43.117:8081', // api 的 base_url
+  baseURL: 'http://192.168.10.108:8080', // api 的 base_url
   timeout: 5000, // request timeout
 });
 
-// request interceptor
+// request interceptor·
 service.interceptors.request.use(
   (config) => {
     // Do something before request is sent

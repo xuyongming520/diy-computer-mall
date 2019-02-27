@@ -1,13 +1,15 @@
+import Cookies from 'js-cookie';
+
 const nameKey = 'user-name';
 
 export function getName() {
-  return sessionStorage.getItem(nameKey);
+  return Cookies.get(nameKey);
 }
 
 export function setName(name) {
-  return sessionStorage.setItem(nameKey, name);
+  return Cookies.set(nameKey, name);
 }
 
 export function removeName() {
-  sessionStorage.removeItem(nameKey);
+  Cookies.remove(nameKey);
 }

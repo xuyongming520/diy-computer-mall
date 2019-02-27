@@ -20,10 +20,10 @@
 <script>
 
 export default {
-  name: '404-page',
+  name: 'error-page',
   computed: {
     message() {
-      return '网管说这个页面你不能进......';
+      return '让人类永远保持理智,确实是一种奢求。';
     },
   },
 };

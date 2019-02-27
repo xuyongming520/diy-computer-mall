@@ -49,7 +49,13 @@
               <span style="font-size:14px;">&nbsp;元</span>
             </div>
           </div>
-          <el-button type="primary" class="button">去购物车结算</el-button>
+          <el-button
+            type="primary"
+            class="button"
+            @click="handleToShoppingCart()"
+          >
+            去购物车结算
+          </el-button>
         </div>
       </div>
     </div>
@@ -101,6 +107,9 @@ export default {
       } else {
         this.loading = false;
       }
+    },
+    handleToShoppingCart() {
+      this.$router.push({ path: '/user/shoppingCart' });
     },
   },
   filters: {

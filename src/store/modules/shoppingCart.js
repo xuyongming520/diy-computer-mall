@@ -50,6 +50,24 @@ const shoppingCart = {
           });
       });
     },
+    updateProducts({ dispatch }, { productId, number }) {
+      return new Promise((resolve, reject) => {
+        cart.update(productId, number)
+          .then((res) => {
+            switch (String(res.data.code)) {
+              case '1':
+                dispatch('getShoppingCart');
+                resolve(res);
+                break;
+              default:
+                break;
+            }
+          })
+          .catch((err) => {
+            reject(err);
+          });
+      });
+    },
     deleteProductById({ dispatch }, id) {
       return new Promise((resolve, reject) => {
         cart.deleteById(id)

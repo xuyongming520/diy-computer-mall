@@ -1,13 +1,15 @@
+import Cookies from 'js-cookie';
+
 const cartKey = 'user-shopping-cart';
 
 export function getCart() {
-  return sessionStorage.getItem(cartKey);
+  return Cookies.get(cartKey);
 }
 
 export function setCart(cart) {
-  return sessionStorage.setItem(cartKey, cart);
+  return Cookies.set(cartKey, cart);
 }
 
 export function removeCart() {
-  return sessionStorage.removeItem(cartKey);
+  return Cookies.remove(cartKey);
 }

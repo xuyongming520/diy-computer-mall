@@ -177,8 +177,9 @@ export default {
       this.getList();
     },
     handlePriceCalc() {
-      if (this.listQuery.price1 > 0 && this.listQuery.price2 > 0 && this.listQuery.price1 < this.listQuery.price2) {
-        [this.listQuery.price1, this.listQuery.price2] = [this.listQuery.price2, this.listQuery.price1];
+      const { price1, price2 } = this.listQuery;
+      if (price1 > 0 && price2 > 0 && price1 < price2) {
+        [this.listQuery.price1, this.listQuery.price2] = [price2, price1];
       }
       this.getList();
     },

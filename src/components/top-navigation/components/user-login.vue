@@ -30,8 +30,8 @@ export default {
   data() {
     return {
       menuList: [
-        { name: '个人主页', methods: '' },
-        { name: '购物车', methods: '' },
+        { name: '个人主页', methods: () => this.$router.push({ name: 'user' }) },
+        { name: '购物车', methods: () => this.$router.push({ name: 'shoppingCartIndex' }) },
         { name: '我的收藏', methods: '' },
         { name: '退出登录', methods: this.logout },
       ],
