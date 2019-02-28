@@ -64,7 +64,14 @@
     </el-table>
 
     <section id="summaryBar">
-
+      <p class="productsNumber">
+        共<span>{{shoppingCartInfo.number}}</span>件商品，
+        已选择<span>{{shoppingCartInfo.selectNumber}}</span>件商品
+      </p>
+      <div id="pay">
+        去结算
+      </div>
+      <p class="Price">共计:<span>{{shoppingCartInfo.price}}</span>元</p>
     </section>
   </div>
 </template>
@@ -98,14 +105,18 @@ export default {
       'shoppingCart',
       'shoppingCartIsNull',
     ]),
-    shopingCartInfo() {
+    shoppingCartInfo() {
       const info = {
         number: 0,
+        selectNumber: 0,
         price: 0,
       };
       if (this.$store.getters.shoppingCart) {
         this.$store.getters.shoppingCart.forEach((value) => {
           info.number += value.number;
+        });
+        this.selectProducts.forEach((value) => {
+          info.selectNumber += value.number;
           info.price += value.number * value.price;
         });
       }
@@ -169,6 +180,41 @@ export default {
     height:50px;
     margin-top:30px;
     border-bottom: 1px solid @colorOne;
+
+    .productsNumber{
+      float: left;
+      color: @fontTwo;
+      font-size: 14px;
+      span{
+        color: @colorOne;
+        font-weight: bold;
+        margin: 0 2px;
+      }
+    }
+
+    #pay{
+      float: right;
+      height: 100%;
+      width:150px;
+      line-height:50px;
+      text-align:center;
+      background:@colorOne;
+      color:white;
+      margin-left:30px;
+      :hover{
+        cursor: pointer;
+      }
+    }
+    .Price{
+      line-hegiht:50px;
+      float: right;
+      span{
+        color: @colorOne;
+        font-weight: bold;
+        margin: 0 4px;
+        font-size: 24px;
+      }
+    }
   }
 }
 </style>

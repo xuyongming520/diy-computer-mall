@@ -44,6 +44,7 @@ export default {
       breadcrumbName: {
         '/user/dashboard': '我的个人中心',
         '/user/shoppingCart': '购物车',
+        '/user/wallet': '我的钱包',
       },
       leftMenu: [
         {
@@ -51,7 +52,7 @@ export default {
           menu: [
             { title: '我的个人中心', path: '/user/dashboard' },
             { title: '购物车', path: '/user/shoppingCart' },
-            { title: '我的钱包', path: '/' },
+            { title: '我的钱包', path: '/user/wallet' },
             { title: '收货地址', path: '/' },
             { title: '收藏的商品', path: '/' },
           ],

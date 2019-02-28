@@ -29,6 +29,11 @@ export default new Router({
           name: 'shoppingCartIndex',
           component: () => import('@/views/user/shopping-cart'),
         },
+        {
+          path: '/user/wallet',
+          name: 'userWallet',
+          component: () => import('@/views/user/wallet'),
+        },
       ],
     },
     {

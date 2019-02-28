@@ -29,3 +29,20 @@ export function userInfo() {
     method: 'get',
   });
 }
+
+export function wallet() {
+  return request({
+    url: '/users/payment',
+    method: 'get',
+  });
+}
+
+export function payment(money) {
+  return request({
+    url: '/users/payment',
+    method: 'post',
+    data: {
+      money,
+    },
+  });
+}
