@@ -34,6 +34,11 @@ export default new Router({
           name: 'userWallet',
           component: () => import('@/views/user/wallet'),
         },
+        {
+          path: '/user/shoppingAddress',
+          name: 'userShoppingAddress',
+          component: () => import('@/views/user/shopping-address'),
+        },
       ],
     },
     {
