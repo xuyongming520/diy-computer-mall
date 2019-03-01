@@ -46,6 +46,7 @@ export default {
         '/user/shoppingCart': '购物车',
         '/user/wallet': '我的钱包',
         '/user/shoppingAddress': '收货地址',
+        '/user/collectibles': '收藏的商品',
       },
       leftMenu: [
         {
@@ -55,7 +56,7 @@ export default {
             { title: '购物车', path: '/user/shoppingCart' },
             { title: '我的钱包', path: '/user/wallet' },
             { title: '收货地址', path: '/user/shoppingAddress' },
-            { title: '收藏的商品', path: '/' },
+            { title: '收藏的商品', path: '/user/collectibles' },
           ],
         },
         {

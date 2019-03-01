@@ -32,7 +32,7 @@ export default {
       menuList: [
         { name: '个人主页', methods: () => this.$router.push({ name: 'user' }) },
         { name: '购物车', methods: () => this.$router.push({ name: 'shoppingCartIndex' }) },
-        { name: '我的收藏', methods: '' },
+        { name: '我的收藏', methods: () => this.$router.push({ name: 'collectibles' }) },
         { name: '退出登录', methods: this.logout },
       ],
     };

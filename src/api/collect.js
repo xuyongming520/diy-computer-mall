@@ -2,7 +2,7 @@ import request from '@/utils/request';
 
 export function query(listQuery) {
   return request({
-    url: '/users/collect',
+    url: '/users/collect/list',
     method: 'post',
     data: listQuery,
   });

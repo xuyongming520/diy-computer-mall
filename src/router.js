@@ -39,6 +39,11 @@ export default new Router({
           name: 'userShoppingAddress',
           component: () => import('@/views/user/shopping-address'),
         },
+        {
+          path: '/user/collectibles',
+          name: 'collectibles',
+          component: () => import('@/views/user/collectibles'),
+        },
       ],
     },
     {
