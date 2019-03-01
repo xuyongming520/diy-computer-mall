@@ -51,6 +51,7 @@
       :page-count="totalPage"
       layout="prev, pager, next"
       style="margin-top:20px"
+      @current-change="handleCurrentChange"
     >
     </el-pagination>
 
@@ -66,7 +67,7 @@
           <el-input v-model="addressDetail.name"></el-input>
         </el-form-item>
         <el-form-item label="手机号码" prop="phone">
-          <el-input v-model="addressDetail.phone"></el-input>
+          <el-input v-model.number="addressDetail.phone"></el-input>
         </el-form-item>
         <el-form-item label="收货地点" required>
           <el-row>
@@ -149,7 +150,7 @@ export default {
         phone: [
           { required: true, message: '请输入手机号码', trigger: 'blur' },
           {
-            type: 'number', min: 11, max: 11, message: '手机号码由11位数字组成', trigger: 'blur',
+            type: 'number', message: '请输入正确的手机号码', trigger: 'blur',
           },
         ],
         country: [{ required: true, message: '请输入国家', trigger: 'blur' }],
@@ -232,17 +233,14 @@ export default {
         return false;
       });
     },
-    deleteAddress(id) {
-      userAddress.deleteById(id)
+    async deleteAddress(id) {
+      await userAddress.deleteById(id)
         .then(() => {
           this.$notify({
             title: '成功',
             message: '删除地址成功！',
             type: 'success',
           });
-          this.loading = false;
-        }).catch(() => {
-          this.loading = false;
         });
       this.getList();
     },
@@ -269,6 +267,10 @@ export default {
     },
     resetForm() {
       this.$refs.addressForm.resetFields();
+    },
+    handleCurrentChange(val) {
+      this.listQuery.page = val;
+      this.getList();
     },
   },
   created() {
