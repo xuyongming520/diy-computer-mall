@@ -164,6 +164,7 @@ export default {
   },
   methods: {
     getList() {
+      this.loading = true;
       userAddress.query(this.listQuery)
         .then((result) => {
           this.addressList = result.data.data.list;
