@@ -49,6 +49,11 @@ export default new Router({
           name: 'userInfo',
           component: () => import('@/views/user/user-info'),
         },
+        {
+          path: '/user/changePassword',
+          name: 'changePassword',
+          component: () => import('@/views/user/change-password'),
+        },
       ],
     },
     {

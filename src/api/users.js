@@ -23,6 +23,17 @@ export function login(email, password) {
   });
 }
 
+export function changePassword(oldPassword, newPassword) {
+  return request({
+    url: '/users',
+    method: 'patch',
+    data: {
+      password: oldPassword,
+      repassword: newPassword,
+    },
+  });
+}
+
 export function userInfo() {
   return request({
     url: '/users',

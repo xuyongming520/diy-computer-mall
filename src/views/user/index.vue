@@ -48,6 +48,7 @@ export default {
         '/user/shoppingAddress': '收货地址',
         '/user/collectibles': '收藏的商品',
         '/user/info': '个人信息',
+        '/user/changePassword': '修改密码',
       },
       leftMenu: [
         {
@@ -64,7 +65,7 @@ export default {
           head: '账户管理',
           menu: [
             { title: '个人信息', path: '/user/info' },
-            { title: '修改密码', path: '/' },
+            { title: '修改密码', path: '/user/changePassword' },
           ],
         },
       ],
