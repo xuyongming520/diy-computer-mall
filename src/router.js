@@ -54,6 +54,16 @@ export default new Router({
           name: 'changePassword',
           component: () => import('@/views/user/change-password'),
         },
+        {
+          path: '/user/paidOrder',
+          name: 'paidOrder',
+          component: () => import('@/views/user/paid-order'),
+        },
+        {
+          path: '/user/completedOrder',
+          name: 'completedOrder',
+          component: () => import('@/views/user/completed-order'),
+        },
       ],
     },
     {

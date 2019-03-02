@@ -49,6 +49,8 @@ export default {
         '/user/collectibles': '收藏的商品',
         '/user/info': '个人信息',
         '/user/changePassword': '修改密码',
+        '/user/paidOrder': '已支付订单',
+        '/user/completeOrder': '已完成订单',
       },
       leftMenu: [
         {
@@ -61,6 +63,13 @@ export default {
             { title: '收藏的商品', path: '/user/collectibles' },
           ],
         },
+        // {
+        //   head: '订单中心',
+        //   menu: [
+        //     { title: '已支付订单', path: '/user/paidOrder' },
+        //     { title: '已完成订单', path: '/user/completeOrder' },
+        //   ],
+        // },
         {
           head: '账户管理',
           menu: [
