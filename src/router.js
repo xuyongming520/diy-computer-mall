@@ -44,6 +44,11 @@ export default new Router({
           name: 'collectibles',
           component: () => import('@/views/user/collectibles'),
         },
+        {
+          path: '/user/info',
+          name: 'userInfo',
+          component: () => import('@/views/user/user-info'),
+        },
       ],
     },
     {

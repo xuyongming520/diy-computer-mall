@@ -30,6 +30,14 @@ export function userInfo() {
   });
 }
 
+export function updateUserInfo(info) {
+  return request({
+    url: '/users/modified',
+    method: 'post',
+    data: info,
+  });
+}
+
 export function wallet() {
   return request({
     url: '/users/payment',
