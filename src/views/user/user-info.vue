@@ -41,7 +41,7 @@ export default {
       userInfo: {},
       rules: {
         name: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
-        phone: [
+        ukPhone: [
           { required: true, message: '请输入手机号码', trigger: 'blur' },
           {
             type: 'number', message: '请输入正确的手机号码', trigger: 'blur',
@@ -56,6 +56,7 @@ export default {
       users.userInfo()
         .then((result) => {
           this.userInfo = result.data.users;
+          this.userInfo.ukPhone = parseInt(this.userInfo.ukPhone, 10);
           this.$store.commit('SET_USERNAME', this.userInfo.name);
           this.loading = false;
         })
